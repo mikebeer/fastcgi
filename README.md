@@ -24,6 +24,12 @@ After
 ADD:
 ProxyPassMatch "^/(.*\.rexx(/.*)?)$" "fcgi://127.0.0.1:8000/Users/MikeBeer/htdocs" enablereuse=on
 
+
+How are parameters sent to the called Program?
+string with the following format:
+&var1=contents1&var2=contents2....
+you may want to use the getvar function to read a variable
+
 8000 is the port number and must match the port in FASTCGI.REXX
 after that: your APACHE DocumentRoot
 
