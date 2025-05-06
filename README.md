@@ -1,8 +1,12 @@
 # fastcgi
 Fastcgi written in REXX for Apache
+tested with OOREXX and REGINA 64bit (both Win 11 - 64bit)
 
 Prerequ:
 Install OOREXX and have .REXX associated with OOREXX programs
+AND / OR
+Install REGINA and RXSOCK 64bit and have .REX associated with REGINE
+
 Install APACHE
 Install mod_fcgid (if not already installed)
 
@@ -22,7 +26,10 @@ After
 </Directory>
 
 ADD:
+for OOREXX:
 ProxyPassMatch "^/(.*\.rexx(/.*)?)$" "fcgi://127.0.0.1:8000/Users/MikeBeer/htdocs" enablereuse=on
+for REGINA: 
+ProxyPassMatch "^/(.*\.rex(/.*)?)$" "fcgi://127.0.0.1:9000/Users/MikeBeer/htdocs" enablereuse=on
 
 
 How are parameters sent to the called Program?
@@ -30,7 +37,7 @@ string with the following format:
 &var1=contents1&var2=contents2....
 you may want to use the getvar function to read a variable
 
-8000 is the port number and must match the port in FASTCGI.REXX
+8000 is the port number and must match the port in FASTCGI.REXX or FASTCGI.REX
 after that: your APACHE DocumentRoot
 
 
